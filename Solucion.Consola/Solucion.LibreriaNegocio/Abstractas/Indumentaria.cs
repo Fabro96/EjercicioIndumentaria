@@ -20,6 +20,13 @@ namespace Solucion.LibreriaNegocio
         {
 
         }
+        public Indumentaria(int codigo, TipoIndumentaria tipoIndumentaria, string talle, double precio)
+        {
+            this._tipoIndumentaria = tipoIndumentaria;
+            this._talle = talle;
+            this._precio = precio;
+            this._codigo = codigo;
+        }
 
         //PRORIEDADES
         public TipoIndumentaria TipoIndumentaria

@@ -8,5 +8,9 @@ namespace Solucion.LibreriaNegocio
 {
     public class IndumentariaFormal : TipoIndumentaria
     {
+        public IndumentariaFormal(string origen, double porcentajeAlgondon)
+        {
+
+        }
     }
 }

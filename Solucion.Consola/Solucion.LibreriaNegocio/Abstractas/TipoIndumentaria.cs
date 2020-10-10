@@ -17,6 +17,11 @@ namespace Solucion.LibreriaNegocio
         {
 
         }
+        public TipoIndumentaria(string origen, double porcentajeAlgondon)
+        {
+            this._origen = origen;
+            this._porcenjateAlgodon = porcentajeAlgondon;
+        }
 
         //PROPIEDADES
         public string Origen

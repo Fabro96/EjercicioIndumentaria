@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +14,14 @@ namespace Solucion.LibreriaNegocio
         private string _material;
 
         //CONSTRUCTORES
-        public Pantalon() : base()
-        {
-
-        }
-        public Pantalon(bool tieneBolsillo, string material)
+        public Pantalon(bool tieneBolsillo, string material, int codigo, TipoIndumentaria tipoIndumentaria, string talle, double precio)
         {
             this._tieneBolsillo = tieneBolsillo;
             this._material = material;
+            this._codigo = codigo;
+            this._tipoIndumentaria = tipoIndumentaria;
+            this._talle = talle;
+            this._precio = precio;
         }
 
         //PROPIEDADES

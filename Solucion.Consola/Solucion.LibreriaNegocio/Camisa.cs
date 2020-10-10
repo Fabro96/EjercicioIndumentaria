@@ -10,17 +10,17 @@ namespace Solucion.LibreriaNegocio
     {
         //ATRIBUTOS
         private bool _tieneEstampado;
-        private string _tieneManga;
+        private string _tipoManga;
 
         //CONSTRUCTORES
-        public Camisa() : base()
-        {
-
-        }
-        public Camisa(bool tieneEstampado, string tieneManga)
+        public Camisa(bool tieneEstampado, string tipoManga, int codigo, TipoIndumentaria tipoIndumentaria, string talle, double precio)
         {
             this._tieneEstampado = tieneEstampado;
-            this._tieneManga = tieneManga;
+            this._tipoManga = tipoManga;
+            this._codigo = codigo;
+            this._tipoIndumentaria = tipoIndumentaria;
+            this._talle = talle;
+            this._precio = precio;
         }
 
         //PROPIEDADES
@@ -31,8 +31,8 @@ namespace Solucion.LibreriaNegocio
         }
         public string TieneManga
         {
-            set { _tieneManga = value; }
-            get { return _tieneManga;  }
+            set { _tipoManga = value; }
+            get { return _tipoManga;  }
         }
 
         //MÉTODOS

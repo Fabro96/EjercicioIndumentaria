@@ -4,8 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+public enum EstadoVenta
+{
+    Iniciada = 1, Procesada, Devuelto
+}
+
 namespace Solucion.LibreriaNegocio
 {
+    
     public class Venta
     {
         //ATRIBUTOS
@@ -53,6 +59,7 @@ namespace Solucion.LibreriaNegocio
         {
             throw new NotFiniteNumberException();
         }
+        
     }
 
 }
