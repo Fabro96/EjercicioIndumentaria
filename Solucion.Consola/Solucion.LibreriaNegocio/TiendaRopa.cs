@@ -18,8 +18,8 @@ namespace Solucion.LibreriaNegocio
         {
             this._inventario = new List<Indumentaria>();
             this._ventas = new List<Venta>();
-            this._ultimoCodigo = 0;
-            
+            this._ultimoCodigo = 1;
+   
         }
 
         //PROPIEDADES
@@ -43,7 +43,7 @@ namespace Solucion.LibreriaNegocio
         //MÉTODOS
         public int GetProximoCodigo()
         {
-            return this._ultimoCodigo + 1;
+            return this._ultimoCodigo;
         }
         public void AgregarIndumentaria(int tipoIndumentariaElegida, int tipoPrenda, bool tieneBolsillo, string material, 
             bool tieneEstampado, string tipoManga, string talle, double precio, string origen, double porcentajeAlgodon)
@@ -102,15 +102,26 @@ namespace Solucion.LibreriaNegocio
                     throw new Exception("No existen ese tipo de indumentaria");
             }
             this._inventario.Add(indumentaria);
+            this._ultimoCodigo = _ultimoCodigo + 1;
+            
 
         }
         public void ModificarIndumentaria(Indumentaria indumentaria)
         {
             throw new NotImplementedException();
         }
-        public void QuitarIndumentaria(Indumentaria indumentaria)
+        public void QuitarIndumentaria(int codigo)
         {
-            throw new NotImplementedException();
+            Indumentaria indumentaria = this._inventario.SingleOrDefault(x => x.Codigo == codigo);
+
+            if(indumentaria != null)
+            {
+                this._inventario.Remove(indumentaria);
+            }
+            else
+            {
+                throw new Exception("El Código no se encuentra en la lista.");
+            }
         }
         public void IngresarOrden(Venta venta)
         {
@@ -118,13 +129,9 @@ namespace Solucion.LibreriaNegocio
         }
         public List<Indumentaria> ListarIndumentaria()
         {
-            if(TieneInventario is true)
-            {
-                foreach(Indumentaria indumentaria in _inventario)
-                {
 
-                }
-            }
+            return _inventario;
+            
         }
         public List<Venta> ListarOrdenVenta()
         {

@@ -49,6 +49,7 @@
     <Compile Include="IndumentariaFormal.cs" />
     <Compile Include="Pantalon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SinStockException.cs" />
     <Compile Include="TiendaRopa.cs" />
     <Compile Include="Abstractas\TipoIndumentaria.cs" />
     <Compile Include="Venta.cs" />

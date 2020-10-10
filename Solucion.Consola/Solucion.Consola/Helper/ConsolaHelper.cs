@@ -182,5 +182,20 @@ namespace Solucion.Consola
 
             return s.ToUpper();
         }
+        public static int PedirCodigo(int min, int max)
+        {
+            int res;
+            Console.WriteLine("\nIngrese el código de la prenda que desee eliminar.");
+            do
+            {
+                if (!int.TryParse(Console.ReadLine(), out res))
+                {
+                    Console.WriteLine("\nIngrese un número entero por favor.");
+                    res = -1;
+                }
+
+            } while (res < min || res > max);
+            return res;
+        }
     }
 }

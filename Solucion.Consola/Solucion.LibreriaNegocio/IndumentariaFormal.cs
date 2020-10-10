@@ -10,7 +10,8 @@ namespace Solucion.LibreriaNegocio
     {
         public IndumentariaFormal(string origen, double porcentajeAlgondon)
         {
-
+            this._origen = origen;
+            this._porcenjateAlgodon = porcentajeAlgondon;
         }
     }
 }

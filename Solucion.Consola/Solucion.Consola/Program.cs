@@ -36,7 +36,6 @@ namespace Solucion.Consola
                 try
                 {
 
-                    
                     int opcion = ConsolaHelper.OpcionMenu(1, 8, "Ingrese la opción en la que desee ingresar: ");
                     Console.Clear();
 
@@ -48,8 +47,10 @@ namespace Solucion.Consola
                         case 2:
                             break;
                         case 3:
+                            Program.QuitarIndumentaria(Lupo);
                             break;
                         case 4:
+                            Program.ListarIndumentaria(Lupo);
                             break;
                         case 5:
                             break;
@@ -125,19 +126,53 @@ namespace Solucion.Consola
         }
         public static void QuitarIndumentaria(TiendaRopa Lupo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (Lupo.TieneInventario is true)
+                {
+                    Program.ListarIndumentaria(Lupo);
+                    int codigo = ConsolaHelper.PedirCodigo(1, Lupo.GetProximoCodigo());
+                    Lupo.QuitarIndumentaria(codigo);
+                    Console.WriteLine("\nLa prenda ha sido eliminada.");
+
+                }
+                else
+                {
+                    throw new SinStockException("La tienda no tiene stock para eliminar.");
+                }
+            }
+            catch (SinStockException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.ReadKey();
         }
         public static void ListarIndumentaria(TiendaRopa Lupo)
         {
 
             try
             {
-                Console.WriteLine(Lupo.ListarIndumentaria());
+                if (Lupo.TieneInventario is true)
+                {
+                    foreach (Indumentaria indumentaria in Lupo.Inventario)
+                    {
+                        Console.WriteLine(indumentaria.GetDetalle());
+                    }   
+                }
+                else
+                {
+                    throw new SinStockException("No hay stock en la tienda.");
+                }
             }
-            catch (Exception ex)
+            catch (SinStockException ex)
             {
-                Console.WriteLine("Hubo un error en el proceso." + ex.Message);
+                Console.WriteLine(ex.Message);
             }
+            Console.ReadKey();
         }
         public static void IngresarOrden(TiendaRopa Lupo)
         {

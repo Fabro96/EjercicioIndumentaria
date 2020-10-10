@@ -58,7 +58,7 @@ namespace Solucion.LibreriaNegocio
         //MÉTODOS
         public override string ToString()
         {
-            return base.ToString();
+            return GetDetalle();
         }
         public override bool Equals(object obj)
         {

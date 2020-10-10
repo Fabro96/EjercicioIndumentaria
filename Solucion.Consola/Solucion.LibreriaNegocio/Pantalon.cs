@@ -39,7 +39,7 @@ namespace Solucion.LibreriaNegocio
         //MÉTODOS
         public override string GetDetalle()
         {
-            throw new NotImplementedException();
+            return string.Format("{0} - {1 } {2} {3} $ {4}", this._codigo, this._tieneBolsillo, this._material ,this._talle, this._precio); ;
         }
     }
 }
