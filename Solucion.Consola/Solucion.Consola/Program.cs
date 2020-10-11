@@ -45,6 +45,7 @@ namespace Solucion.Consola
                             Program.RegistrarIndumentaria(Lupo);
                             break;
                         case 2:
+                            Program.ModificarIndumentaria(Lupo);
                             break;
                         case 3:
                             Program.QuitarIndumentaria(Lupo);
@@ -122,7 +123,22 @@ namespace Solucion.Consola
         }
         public static void ModificarIndumentaria(TiendaRopa Lupo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (Lupo.TieneInventario)
+                {
+                    Program.ListarIndumentaria(Lupo);
+                    int codigo = ConsolaHelper.PedirCodigo(0, Lupo.GetProximoCodigo());
+                    Lupo.ModificarIndumentaria(codigo);
+                    Program.RegistrarIndumentaria(Lupo);
+                    Console.WriteLine("\nLa prenda a sido modificada exitosamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.ReadKey();
         }
         public static void QuitarIndumentaria(TiendaRopa Lupo)
         {

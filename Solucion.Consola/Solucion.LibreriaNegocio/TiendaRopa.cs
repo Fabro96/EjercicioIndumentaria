@@ -106,9 +106,18 @@ namespace Solucion.LibreriaNegocio
             
 
         }
-        public void ModificarIndumentaria(Indumentaria indumentaria)
+        public void ModificarIndumentaria(int codigo)
         {
-            throw new NotImplementedException();
+            Indumentaria indumentaria = this._inventario.SingleOrDefault(x => x.Codigo == codigo);
+            
+            if(indumentaria != null)
+            {
+                this.QuitarIndumentaria(codigo);
+            }
+            else
+            {
+                throw new Exception("No se ha encontrado la prenda seleccionada. Verifique su existencia por favor.");
+            }
         }
         public void QuitarIndumentaria(int codigo)
         {
@@ -120,7 +129,7 @@ namespace Solucion.LibreriaNegocio
             }
             else
             {
-                throw new Exception("El Código no se encuentra en la lista.");
+                throw new Exception("No se ha encontrado la prenda seleccionada. Verifique su existencia por favor.");
             }
         }
         public void IngresarOrden(Venta venta)
